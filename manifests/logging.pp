@@ -11,10 +11,10 @@ class roles::logging inherits roles::node {
 
   if $::osfamily == 'RedHat' {
     if defined(Class['profiles::runtime::java']) and defined(Class['profiles::monitoring::logstash']) {
-      Package['java'] -> Yumrepo['elastic-5.x']
+      Package['java'] -> Yumrepo['elastic']
     }
     if defined(Class['profiles::runtime::java']) and defined(Class['profiles::logging::elasticsearch']) {
-      Package['java'] -> Yumrepo['elasticsearch']
+      Package['java'] -> Yumrepo['elastic']
     }
   }
 }
